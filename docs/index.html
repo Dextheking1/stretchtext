@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StretchText for Pollinations — install</title>
+<style>
+  body { font: 16px/1.6 system-ui, sans-serif; max-width: 720px; margin: 2.5rem auto; padding: 0 1rem; color: #212121; }
+  h1 { font-size: 1.8rem; line-height: 1.25; }
+  .cta { display: inline-block; padding: 0.7rem 1.4rem; background: #ffe082; border: 1px solid #e0a800; border-radius: 8px; font-weight: 700; color: #4e342e; text-decoration: none; }
+  img.shot { width: 100%; border: 1px solid #ddd; border-radius: 8px; }
+  code { background: #f4f4f4; padding: 0.1em 0.35em; border-radius: 4px; }
+  ol li { margin: 0.4rem 0; }
+  footer { margin-top: 3rem; }
+</style>
+</head>
+<body>
+<h1>StretchText for Pollinations</h1>
+<p>Turn any web page into stretchtext. Hover a paragraph, hit <b>+ stretch</b>,
+and a Pollinations text model grows the passage in place, tinted so you can
+see what is grown. Hit <b>shrink</b> and the page is exactly what it was.
+Grown text stretches one level deeper still.</p>
+<p>Ted Nelson described stretchtext in 1967. Writing every level by hand was
+too much work, so it never caught on. Generated text makes it cheap.</p>
+
+<p><a class="cta" href="stretchtext.zip">Download stretchtext.zip</a></p>
+
+<h2>Install (load unpacked)</h2>
+<ol>
+  <li>Download and unzip <a href="stretchtext.zip">stretchtext.zip</a>.</li>
+  <li>Open <code>chrome://extensions</code> in a Chromium browser.</li>
+  <li>Turn on <b>Developer mode</b> (top right).</li>
+  <li>Click <b>Load unpacked</b> and pick the unzipped folder.</li>
+  <li>Open the extension's options and connect your Pollen.</li>
+</ol>
+<p>Readers pay with their own Pollen: connect with the BYOP device flow in
+options (approve in your browser, the extension polls for your key), or paste
+your own Pollinations API key. Keys stay in <code>chrome.storage.local</code>
+on your machine. Every call goes to <code>gen.pollinations.ai</code> with
+your key.</p>
+
+<h2>What it looks like</h2>
+<img class="shot" src="screenshot.png" alt="StretchText running on a fixture article, two levels of grown text tinted">
+<p><small>The real content script on a local fixture page, model call mocked.
+Code blocks and editable fields are never touched, and shrink restores the
+page exactly.</small></p>
+
+<p>Source, tests, and issues:
+<a href="https://github.com/Dextheking1/stretchtext">github.com/Dextheking1/stretchtext</a></p>
+
+<footer>
+<a href="https://pollinations.ai/?ref=badge">
+  <img src="https://raw.githubusercontent.com/pollinations/pollinations/main/packages/ui/src/brand/badge-made-with.svg" alt="Made with pollinations.ai">
+</a>
+</footer>
+</body>
+</html>
