@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Fixture article — StretchText load test</title>
+<link rel="stylesheet" href="../../src/content.css">
+<style>
+  body { font: 17px/1.65 Georgia, serif; max-width: 680px; margin: 3rem auto; padding: 0 1rem; color: #1a1a1a; }
+  h1 { font-size: 1.7rem; line-height: 1.25; }
+  .byline { color: #666; font-size: 0.9rem; }
+  pre { background: #f4f4f4; padding: 1rem; overflow: auto; }
+</style>
+<script>
+  // Chrome API stub so the real content script can run on this static page.
+  // The model call is mocked: no network, no key, no Pollen spent.
+  window.chrome = {
+    storage: { local: { get: function (keys, cb) { cb({ enabled: true }); } } },
+    runtime: {
+      sendMessage: function (msg, cb) {
+        var text = msg.depth === 2
+          ? "Nelson called the two directions stretch and squeeze: text could grow where a reader wanted more and shrink back where they did not, all inside one document instead of separate summaries and appendices."
+          : "Writing every level by hand meant an author had to produce the short version, the long version, and everything between, which is why the idea stayed a curiosity for decades. A language model removes that cost: the deeper levels are generated only when a reader actually asks for them.";
+        setTimeout(function () { cb({ ok: true, text: text }); }, 30);
+      }
+    }
+  };
+</script>
+</head>
+<body>
+<h1>Stretchtext: the 1967 idea that waited for generated text</h1>
+<p class="byline">Fixture page for StretchText tests. Not a real article.</p>
+
+<p>In 1967 Ted Nelson described stretchtext, text that grows where the reader
+wants more and shrinks back where they don't. The idea was simple and the demo
+was convincing, but it never caught on in practice. Every level of detail had
+to exist before the reader arrived, so authors quietly went back to writing
+one fixed version of everything.</p>
+
+<p>The economics flipped once text could be generated on demand. Now the short
+version is the only one anyone has to write in advance, and the expansions are
+produced at the moment a reader asks, in place, exactly where the question
+came up. This fixture paragraph is long enough to qualify for the stretch
+control, unlike the short ones around it.</p>
+
+<p>Short paragraph. It should not get a control.</p>
+
+<pre>Code blocks are never touched. p.stretch { content: "no"; }</pre>
+
+<p contenteditable="true">Editable text is never touched either, even when it
+is long enough to look like an article paragraph with several sentences in it.
+StretchText skips anything the reader can type into, by design, every time.</p>
+
+<script src="../../src/lib.js"></script>
+<script src="../../src/content.js"></script>
+<script>
+  // Demo mode: click the first stretch control, then stretch the result,
+  // so a screenshot shows the real content script with two grown levels.
+  window.addEventListener("load", function () {
+    setTimeout(function () {
+      var btn = document.querySelector("p .st-btn");
+      if (btn) btn.click();
+      setTimeout(function () {
+        var deeper = document.querySelector(".st-grown .st-btn");
+        if (deeper) deeper.click();
+      }, 250);
+    }, 250);
+  });
+</script>
+</body>
+</html>
