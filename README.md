@@ -61,6 +61,10 @@ never ships with one and there is no shared key anywhere in the code.
 - Skipped, always: editable fields, inputs, `pre`/`code` blocks, scripts, and
   anything already grown.
 
+The exact request shape the extension sends was verified once against the
+live API during development (model `openai`, one short passage, about
+0.002 Pollen). Everything else in development and tests uses mocks.
+
 ## Development
 
 ```
