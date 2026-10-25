@@ -1,0 +1,37 @@
+/* StretchText in-page styles. Prefixed so they cannot collide with the page. */
+.st-btn {
+  display: inline-block;
+  margin: 0 0 0 0.4em;
+  padding: 0 0.45em;
+  font: 600 11px/1.7 system-ui, sans-serif;
+  color: #6d4c00;
+  background: #ffe082;
+  border: 1px solid #e0a800;
+  border-radius: 999px;
+  cursor: pointer;
+  vertical-align: baseline;
+  opacity: 0;
+  transition: opacity 0.15s ease-in-out;
+}
+p:hover > .st-btn, li:hover > .st-btn, blockquote:hover > .st-btn,
+.st-btn.st-visible, .st-grown > .st-btn {
+  opacity: 0.95;
+}
+.st-btn:hover { background: #ffd54f; }
+.st-btn[disabled] { opacity: 0.6; cursor: wait; }
+
+.st-grown {
+  background: rgba(255, 213, 79, 0.28);
+  border-bottom: 1px dashed rgba(224, 168, 0, 0.8);
+  border-radius: 2px;
+  padding: 0 0.1em;
+}
+.st-grown .st-grown {
+  background: rgba(129, 199, 132, 0.30);
+  border-bottom-color: rgba(56, 142, 60, 0.8);
+}
+.st-error {
+  color: #b71c1c;
+  font-size: 0.85em;
+  margin-left: 0.4em;
+}
