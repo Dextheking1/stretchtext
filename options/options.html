@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>StretchText options</title>
+<style>
+  body { font: 15px/1.55 system-ui, sans-serif; max-width: 640px; margin: 2rem auto; padding: 0 1rem; color: #212121; }
+  h1 { font-size: 1.4rem; }
+  h2 { font-size: 1.1rem; margin-top: 2rem; }
+  label { display: block; font-weight: 600; margin: 0.8rem 0 0.25rem; }
+  input[type="text"], input[type="password"] { width: 100%; padding: 0.5rem; box-sizing: border-box; }
+  button { padding: 0.5rem 1rem; background: #ffe082; border: 1px solid #e0a800; border-radius: 6px; font-weight: 600; cursor: pointer; }
+  button[disabled] { opacity: 0.6; cursor: wait; }
+  .status { margin-top: 0.8rem; padding: 0.6rem 0.8rem; background: #f5f5f5; border-radius: 6px; white-space: pre-wrap; word-break: break-all; }
+  .code { font-size: 1.6rem; font-weight: 700; letter-spacing: 0.15em; }
+  small { color: #555; }
+</style>
+</head>
+<body>
+<h1>StretchText options</h1>
+<p>StretchText spends <strong>your</strong> Pollen, never the developer's. Connect
+your Pollinations account once and every expansion is billed to your key.
+Keys are stored only in <code>chrome.storage.local</code> on this machine.</p>
+
+<h2>Option A: connect with the device flow (BYOP)</h2>
+<p>Sign in on pollinations.ai in your browser, then approve this extension.
+This is the device flow from Pollinations' Bring Your Own Pollen guide,
+built for apps that cannot show the consent page themselves.</p>
+<label for="appKey">App key (pk_…, optional, used for attribution)</label>
+<input type="text" id="appKey" placeholder="pk_…">
+<p><button id="deviceStart" type="button">Connect my Pollen</button></p>
+<div class="status" id="deviceStatus">Not connected.</div>
+
+<h2>Option B: paste your own API key</h2>
+<label for="apiKey">Pollinations API key</label>
+<input type="password" id="apiKey" placeholder="sk_… or your personal key from enter.pollinations.ai/keys">
+<p><button id="saveKey" type="button">Save key</button>
+<button id="clearKey" type="button">Remove key</button></p>
+<div class="status" id="keyStatus"></div>
+
+<h2>Model</h2>
+<label for="model">Text model on gen.pollinations.ai</label>
+<input type="text" id="model" placeholder="openai">
+<p><small>Default is <code>openai</code> (GPT-5.4 Nano). Any text model from
+gen.pollinations.ai/text/models works.</small></p>
+<p><button id="saveModel" type="button">Save model</button></p>
+
+<script src="../src/lib.js"></script>
+<script src="options.js"></script>
+</body>
+</html>
