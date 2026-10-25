@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>StretchText</title>
+<style>
+  body { font: 14px/1.5 system-ui, sans-serif; width: 260px; margin: 0; padding: 12px; color: #212121; }
+  h1 { font-size: 15px; margin: 0 0 6px; }
+  button { padding: 0.4rem 0.8rem; background: #ffe082; border: 1px solid #e0a800; border-radius: 6px; font-weight: 600; cursor: pointer; }
+  .row { margin: 10px 0; }
+  small { color: #555; }
+</style>
+</head>
+<body>
+<h1>StretchText</h1>
+<div class="row" id="status">Checking…</div>
+<div class="row">
+  <label><input type="checkbox" id="enabled"> Enabled on pages</label>
+</div>
+<div class="row"><button id="openOptions" type="button">Connect Pollen / options</button></div>
+<div class="row"><small>Hover a paragraph and hit <b>+ stretch</b>. Grown text is
+tinted. Hit <b>shrink</b> to restore the page exactly.</small></div>
+<script src="popup.js"></script>
+</body>
+</html>
